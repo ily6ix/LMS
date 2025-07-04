@@ -1,0 +1,108 @@
+:root {
+  --primary: #1e40af;
+  --primary-dark: #1e3a8a;
+  --secondary: #f3f4f6;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --border: #e5e7eb;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+/* Applications Specific Styles */
+.chart-container {
+  height: 300px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.grade-applications {
+  margin-bottom: 1.5rem;
+}
+
+.grade-toggle {
+  transition: transform var(--transition-speed);
+}
+
+.grade-toggle.collapsed {
+  transform: rotate(-90deg);
+}
+
+.table-container {
+  overflow-x: auto;
+  transition: max-height var(--transition-speed), opacity var(--transition-speed);
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.table-container.collapsed {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.document-btn {
+  white-space: nowrap;
+}
+
+/* Document Modal Styles */
+.document-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.document-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.document-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: var(--primary);
+}
+
+.document-info {
+  flex: 1;
+}
+
+.document-info h4 {
+  margin: 0 0 0.25rem 0;
+}
+
+.document-info p {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+.document-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .document-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .document-icon {
+    margin-bottom: 0.5rem;
+  }
+  
+  .document-actions {
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

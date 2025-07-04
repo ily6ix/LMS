@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Status Tracking - Awesome School</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/status-tracking.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar (included via JavaScript) -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header (included via JavaScript) -->
+      <div id="header-container"></div>
+
+      <!-- Content Area -->
+      <div class="content">
+        <h1>Application Status Tracking</h1>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Update Application Status</h2>
+          </div>
+          <div class="filters">
+            <div class="filter-item">
+              <label for="application-id">Application ID</label>
+              <input type="text" id="application-id" class="form-control" placeholder="Enter application ID...">
+            </div>
+            <div class="filter-item">
+              <label for="new-status">New Status</label>
+              <select id="new-status" class="form-select">
+                <option value="">Select Status</option>
+                <option value="received">Application Received</option>
+                <option value="review">Under Review</option>
+                <option value="interview">Interview Scheduled</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+                <option value="waitlist">Waitlisted</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="status-notes">Notes</label>
+            <textarea id="status-notes" class="form-control" placeholder="Add notes about this status change..."></textarea>
+          </div>
+          <button class="btn btn-primary">
+            <i class="fas fa-save btn-icon"></i>Update Status
+          </button>
+        </div>
+
+        <!-- Grade 12 Status Updates -->
+        <div class="card grade-section">
+          <div class="card-header">
+            <h2 class="card-title">Grade 12 Status Updates</h2>
+            <button class="btn btn-sm btn-outline grade-toggle">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Application ID</th>
+                  <th>Student Name</th>
+                  <th>Status</th>
+                  <th>Updated By</th>
+                  <th>Date Updated</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#APP-1240</td>
+                  <td>Michael Chen</td>
+                  <td><span class="badge badge-info">Under Review</span></td>
+                  <td>Admin User</td>
+                  <td>May 16, 2023</td>
+                  <td>
+                    <button class="btn btn-sm btn-primary view-history" data-id="1240">View History</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#APP-1241</td>
+                  <td>Sophia Rodriguez</td>
+                  <td><span class="badge badge-success">Approved</span></td>
+                  <td>Jane Smith</td>
+                  <td>May 15, 2023</td>
+                  <td>
+                    <button class="btn btn-sm btn-primary view-history" data-id="1241">View History</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#APP-1242</td>
+                  <td>David Kim</td>
+                  <td><span class="badge badge-warning">Interview Scheduled</span></td>
+                  <td>Admin User</td>
+                  <td>May 14, 2023</td>
+                  <td>
+                    <button class="btn btn-sm btn-primary view-history" data-id="1242">View History</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Grade 11 Status Updates -->
+        <div class="card grade-section">
+          <div class="card-header">
+            <h2 class="card-title">Grade 11 Status Updates</h2>
+            <button class="btn btn-sm btn-outline grade-toggle">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Application ID</th>
+                  <th>Student Name</th>
+                  <th>Status</th>
+                  <th>Updated By</th>
+                  <th>Date Updated</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#APP-1236</td>
+                  <td>Emma Wilson</td>
+                  <td><span class="badge badge-danger">Rejected</span></td>
+                  <td>Admin User</td>
+                  <td>May 16, 2023</td>
+                  <td>
+                    <button class="btn btn-sm btn-primary view-history" data-id="1236">View History</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#APP-1237</td>
+                  <td>James Thompson</td>
+                  <td><span class="badge badge-warning">Under Review</span></td>
+                  <td>Jane Smith</td>
+                  <td>May 15, 2023</td>
+                  <td>
+                    <button class="btn btn-sm btn-primary view-history" data-id="1237">View History</button>
+                  </td>
+                </tr>
+                <!-- More Grade 11 status updates would be listed here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Additional grade sections would follow the same pattern -->
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Status Tracking Link Generator</h2>
+          </div>
+          <p>Generate a unique tracking link for applicants to check their application status.</p>
+          <div class="form-group">
+            <label for="tracking-application">Application ID</label>
+            <input type="text" id="tracking-application" class="form-control" placeholder="Enter application ID...">
+          </div>
+          <button class="btn btn-primary">
+            <i class="fas fa-link btn-icon"></i>Generate Tracking Link
+          </button>
+          <div class="form-group mt-3" style="margin-top: 1rem;">
+            <label for="tracking-link">Tracking Link</label>
+            <div class="input-group">
+              <input type="text" id="tracking-link" class="form-control" value="https://awesomeschool.edu/track/APP-1234-XYZ" readonly>
+              <button class="btn btn-outline">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status History Modal -->
+  <div class="modal-backdrop" id="history-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Status History - Application #APP-1234</h3>
+        <button class="modal-close" id="close-history-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="status-timeline">
+          <div class="status-item">
+            <div class="status-icon approved">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="status-content">
+              <div class="status-header">
+                <h4>Approved</h4>
+                <span class="status-date">May 16, 2023 - 10:30 AM</span>
+              </div>
+              <p class="status-notes">Student meets all requirements. Excellent academic record and extracurricular activities.</p>
+              <p class="status-user">Updated by: Admin User</p>
+            </div>
+          </div>
+          <div class="status-item">
+            <div class="status-icon interview">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="status-content">
+              <div class="status-header">
+                <h4>Interview Scheduled</h4>
+                <span class="status-date">May 14, 2023 - 2:15 PM</span>
+              </div>
+              <p class="status-notes">Interview scheduled for May 15, 2023 at 3:00 PM with Principal Johnson.</p>
+              <p class="status-user">Updated by: Jane Smith</p>
+            </div>
+          </div>
+          <div class="status-item">
+            <div class="status-icon review">
+              <i class="fas fa-search"></i>
+            </div>
+            <div class="status-content">
+              <div class="status-header">
+                <h4>Under Review</h4>
+                <span class="status-date">May 12, 2023 - 9:45 AM</span>
+              </div>
+              <p class="status-notes">Application is complete and under review by the admissions committee.</p>
+              <p class="status-user">Updated by: Admin User</p>
+            </div>
+          </div>
+          <div class="status-item">
+            <div class="status-icon received">
+              <i class="fas fa-inbox"></i>
+            </div>
+            <div class="status-content">
+              <div class="status-header">
+                <h4>Application Received</h4>
+                <span class="status-date">May 10, 2023 - 11:20 AM</span>
+              </div>
+              <p class="status-notes">Application has been received and is pending review.</p>
+              <p class="status-user">System</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="cancel-history-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/status-tracking.js"></script>
+</body>
+</html>

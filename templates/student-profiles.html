@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profiles - Awesome School</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/student-profiles.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar (included via JavaScript) -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header (included via JavaScript) -->
+      <div id="header-container"></div>
+
+      <!-- Content Area -->
+      <div class="content">
+        <h1>Student Profile Management</h1>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Search Students</h2>
+          </div>
+          <div class="filters">
+            <div class="filter-item">
+              <label for="student-search">Search</label>
+              <input type="text" id="student-search" class="form-control" placeholder="Search by name, ID, or email...">
+            </div>
+            <div class="filter-item">
+              <label for="student-grade">Grade</label>
+              <select id="student-grade" class="form-select">
+                <option value="">All Grades</option>
+                <option value="6">Grade 6</option>
+                <option value="7">Grade 7</option>
+                <option value="8">Grade 8</option>
+                <option value="9">Grade 9</option>
+                <option value="10">Grade 10</option>
+                <option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary">
+            <i class="fas fa-search btn-icon"></i>Search
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Student Profiles</h2>
+            <button class="btn btn-primary" id="add-student-btn">
+              <i class="fas fa-plus btn-icon"></i>Add New Student
+            </button>
+          </div>
+          
+          <!-- Grade 12 Students -->
+          <div class="grade-section">
+            <div class="grade-header">
+              <h3>Grade 12</h3>
+              <button class="btn btn-sm btn-outline grade-toggle">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Guardian</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#STU-5678</td>
+                    <td>Aaron Anderson</td>
+                    <td>aaron.a@example.com</td>
+                    <td>Mary Anderson</td>
+                    <td>(123) 456-7890</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-sm btn-primary view-student" data-id="5678">View</button>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#STU-5679</td>
+                    <td>Brittany Brown</td>
+                    <td>brittany.b@example.com</td>
+                    <td>Robert Brown</td>
+                    <td>(234) 567-8901</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-sm btn-primary view-student" data-id="5679">View</button>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#STU-5680</td>
+                    <td>Carlos Cruz</td>
+                    <td>carlos.c@example.com</td>
+                    <td>Jennifer Cruz</td>
+                    <td>(345) 678-9012</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-sm btn-primary view-student" data-id="5680">View</button>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- Grade 11 Students -->
+          <div class="grade-section">
+            <div class="grade-header">
+              <h3>Grade 11</h3>
+              <button class="btn btn-sm btn-outline grade-toggle">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Guardian</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#STU-5681</td>
+                    <td>Amanda Adams</td>
+                    <td>amanda.a@example.com</td>
+                    <td>Thomas Adams</td>
+                    <td>(456) 789-0123</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-sm btn-primary view-student" data-id="5681">View</button>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#STU-5682</td>
+                    <td>Brandon Baker</td>
+                    <td>brandon.b@example.com</td>
+                    <td>Sarah Baker</td>
+                    <td>(567) 890-1234</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-sm btn-primary view-student" data-id="5682">View</button>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#STU-5683</td>
+                    <td>Chloe Carter</td>
+                    <td>chloe.c@example.com</td>
+                    <td>Michael Carter</td>
+                    <td>(678) 901-2345</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-sm btn-primary view-student" data-id="5683">View</button>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- Additional grade sections would follow the same pattern -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Student View Modal -->
+  <div class="modal-backdrop" id="student-modal">
+    <div class="modal student-modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Student Profile: #STU-5678</h3>
+        <button class="modal-close" id="close-student-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="student-profile-header">
+          <div class="student-avatar">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <div class="student-info">
+            <h2>Aaron Anderson</h2>
+            <p>Grade 12 | Enrolled: September 2020</p>
+          </div>
+        </div>
+        
+        <div class="tabs">
+          <div class="tab active" data-tab="personal">Personal Info</div>
+          <div class="tab" data-tab="academic">Academic</div>
+          <div class="tab" data-tab="guardian">Guardian</div>
+          <div class="tab" data-tab="documents">Documents</div>
+        </div>
+        
+        <div class="tab-content active" id="personal-tab">
+          <div class="profile-section">
+            <h4>Personal Information</h4>
+            <div class="profile-grid">
+              <div class="profile-item">
+                <label>Full Name</label>
+                <p>Aaron Anderson</p>
+              </div>
+              <div class="profile-item">
+                <label>Date of Birth</label>
+                <p>January 15, 2006</p>
+              </div>
+              <div class="profile-item">
+                <label>Gender</label>
+                <p>Male</p>
+              </div>
+              <div class="profile-item">
+                <label>Email</label>
+                <p>aaron.a@example.com</p>
+              </div>
+              <div class="profile-item">
+                <label>Phone</label>
+                <p>(123) 456-7890</p>
+              </div>
+              <div class="profile-item">
+                <label>Address</label>
+                <p>123 Main Street, Cityville, State 12345</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="academic-tab">
+          <div class="profile-section">
+            <h4>Academic Information</h4>
+            <div class="profile-grid">
+              <div class="profile-item">
+                <label>Current Grade</label>
+                <p>Grade 12</p>
+              </div>
+              <div class="profile-item">
+                <label>Enrollment Date</label>
+                <p>September 5, 2020</p>
+              </div>
+              <div class="profile-item">
+                <label>Previous School</label>
+                <p>Lincoln Middle School</p>
+              </div>
+              <div class="profile-item">
+                <label>GPA</label>
+                <p>3.8</p>
+              </div>
+            </div>
+            
+            <h4>Course Enrollment</h4>
+            <table class="profile-table">
+              <thead>
+                <tr>
+                  <th>Course</th>
+                  <th>Teacher</th>
+                  <th>Schedule</th>
+                  <th>Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Advanced Mathematics</td>
+                  <td>Dr. Johnson</td>
+                  <td>Mon, Wed, Fri 9:00 AM</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Physics</td>
+                  <td>Mrs. Smith</td>
+                  <td>Tue, Thu 10:30 AM</td>
+                  <td>A-</td>
+                </tr>
+                <tr>
+                  <td>English Literature</td>
+                  <td>Mr. Davis</td>
+                  <td>Mon, Wed, Fri 1:00 PM</td>
+                  <td>B+</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="guardian-tab">
+          <div class="profile-section">
+            <h4>Guardian Information</h4>
+            <div class="profile-grid">
+              <div class="profile-item">
+                <label>Primary Guardian</label>
+                <p>Mary Anderson</p>
+              </div>
+              <div class="profile-item">
+                <label>Relationship</label>
+                <p>Mother</p>
+              </div>
+              <div class="profile-item">
+                <label>Email</label>
+                <p>mary.a@example.com</p>
+              </div>
+              <div class="profile-item">
+                <label>Phone</label>
+                <p>(123) 456-7891</p>
+              </div>
+              <div class="profile-item">
+                <label>Occupation</label>
+                <p>Software Engineer</p>
+              </div>
+            </div>
+            
+            <h4>Secondary Guardian</h4>
+            <div class="profile-grid">
+              <div class="profile-item">
+                <label>Name</label>
+                <p>John Anderson</p>
+              </div>
+              <div class="profile-item">
+                <label>Relationship</label>
+                <p>Father</p>
+              </div>
+              <div class="profile-item">
+                <label>Email</label>
+                <p>john.a@example.com</p>
+              </div>
+              <div class="profile-item">
+                <label>Phone</label>
+                <p>(123) 456-7892</p>
+              </div>
+              <div class="profile-item">
+                <label>Occupation</label>
+                <p>Architect</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="documents-tab">
+          <div class="profile-section">
+            <h4>Student Documents</h4>
+            <div class="document-list">
+              <div class="document-item">
+                <div class="document-icon">
+                  <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="document-info">
+                  <h4>Transcript.pdf</h4>
+                  <p>Uploaded on: August 15, 2022</p>
+                </div>
+                <div class="document-actions">
+                  <button class="btn btn-sm btn-primary">View</button>
+                  <button class="btn btn-sm btn-outline">Download</button>
+                </div>
+              </div>
+              <div class="document-item">
+                <div class="document-icon">
+                  <i class="fas fa-file-image"></i>
+                </div>
+                <div class="document-info">
+                  <h4>ID_Card.jpg</h4>
+                  <p>Uploaded on: September 1, 2022</p>
+                </div>
+                <div class="document-actions">
+                  <button class="btn btn-sm btn-primary">View</button>
+                  <button class="btn btn-sm btn-outline">Download</button>
+                </div>
+              </div>
+              <div class="document-item">
+                <div class="document-icon">
+                  <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="document-info">
+                  <h4>Medical_Records.pdf</h4>
+                  <p>Uploaded on: September 5, 2022</p>
+                </div>
+                <div class="document-actions">
+                  <button class="btn btn-sm btn-primary">View</button>
+                  <button class="btn btn-sm btn-outline">Download</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="upload-section">
+              <h4>Upload New Document</h4>
+              <div class="form-group">
+                <label for="document-type">Document Type</label>
+                <select id="document-type" class="form-select">
+                  <option value="">Select Document Type</option>
+                  <option value="transcript">Transcript</option>
+                  <option value="id">ID Card</option>
+                  <option value="medical">Medical Records</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="document-file">File</label>
+                <input type="file" id="document-file" class="form-control">
+              </div>
+              <button class="btn btn-primary">
+                <i class="fas fa-upload btn-icon"></i>Upload Document
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="cancel-student-modal">Close</button>
+        <button class="btn btn-warning">Edit Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add/Edit Student Modal -->
+  <div class="modal-backdrop" id="edit-student-modal">
+    <div class="modal student-modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Add New Student</h3>
+        <button class="modal-close" id="close-edit-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="tabs">
+          <div class="tab active" data-tab="edit-personal">Personal Info</div>
+          <div class="tab" data-tab="edit-academic">Academic</div>
+          <div class="tab" data-tab="edit-guardian">Guardian</div>
+        </div>
+        
+        <div class="tab-content active" id="edit-personal-tab">
+          <div class="form-section">
+            <h4>Personal Information</h4>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="student-first-name">First Name</label>
+                <input type="text" id="student-first-name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="student-last-name">Last Name</label>
+                <input type="text" id="student-last-name" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="student-dob">Date of Birth</label>
+                <input type="date" id="student-dob" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="student-gender">Gender</label>
+                <select id="student-gender" class="form-select">
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="student-address">Address</label>
+              <input type="text" id="student-address" class="form-control">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="student-email">Email</label>
+                <input type="email" id="student-email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="student-phone">Phone</label>
+                <input type="tel" id="student-phone" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="edit-academic-tab">
+          <div class="form-section">
+            <h4>Academic Information</h4>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="student-grade">Grade</label>
+                <select id="student-grade" class="form-select">
+                  <option value="">Select Grade</option>
+                  <option value="6">Grade 6</option>
+                  <option value="7">Grade 7</option>
+                  <option value="8">Grade 8</option>
+                  <option value="9">Grade 9</option>
+                  <option value="10">Grade 10</option>
+                  <option value="11">Grade 11</option>
+                  <option value="12">Grade 12</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="student-enrollment">Enrollment Date</label>
+                <input type="date" id="student-enrollment" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="student-previous-school">Previous School</label>
+                <input type="text" id="student-previous-school" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="student-gpa">GPA</label>
+                <input type="number" id="student-gpa" class="form-control" step="0.1" min="0" max="4">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="edit-guardian-tab">
+          <div class="form-section">
+            <h4>Primary Guardian</h4>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="guardian-name">Name</label>
+                <input type="text" id="guardian-name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="guardian-relationship">Relationship</label>
+                <select id="guardian-relationship" class="form-select">
+                  <option value="">Select Relationship</option>
+                  <option value="mother">Mother</option>
+                  <option value="father">Father</option>
+                  <option value="guardian">Legal Guardian</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="guardian-email">Email</label>
+                <input type="email" id="guardian-email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="guardian-phone">Phone</label>
+                <input type="tel" id="guardian-phone" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="guardian-occupation">Occupation</label>
+              <input type="text" id="guardian-occupation" class="form-control">
+            </div>
+            
+            <h4>Secondary Guardian (Optional)</h4>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="secondary-guardian-name">Name</label>
+                <input type="text" id="secondary-guardian-name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="secondary-guardian-relationship">Relationship</label>
+                <select id="secondary-guardian-relationship" class="form-select">
+                  <option value="">Select Relationship</option>
+                  <option value="mother">Mother</option>
+                  <option value="father">Father</option>
+                  <option value="guardian">Legal Guardian</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="secondary-guardian-email">Email</label>
+                <input type="email" id="secondary-guardian-email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="secondary-guardian-phone">Phone</label>
+                <input type="tel" id="secondary-guardian-phone" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="cancel-edit-modal">Cancel</button>
+        <button class="btn btn-primary">Save Student</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/student-profiles.js"></script>
+</body>
+</html>

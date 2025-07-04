@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Role Configuration - Awesome School</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/user-roles.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar (included via JavaScript) -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header (included via JavaScript) -->
+      <div id="header-container"></div>
+
+      <!-- Content Area -->
+      <div class="content">
+        <h1>User Role Configuration</h1>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">User Roles</h2>
+            <button class="btn btn-primary" id="add-role-btn">
+              <i class="fas fa-plus btn-icon"></i>Add New Role
+            </button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Role Name</th>
+                  <th>Description</th>
+                  <th>Users</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Administrator</td>
+                  <td>Full access to all system features</td>
+                  <td>2</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-permissions" data-role="administrator">View Permissions</button>
+                      <button class="btn btn-sm btn-warning edit-role" data-role="administrator">Edit</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Application Reviewer</td>
+                  <td>Can review and update application status</td>
+                  <td>3</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-permissions" data-role="reviewer">View Permissions</button>
+                      <button class="btn btn-sm btn-warning edit-role" data-role="reviewer">Edit</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Content Manager</td>
+                  <td>Can manage blog posts and website content</td>
+                  <td>1</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-permissions" data-role="content">View Permissions</button>
+                      <button class="btn btn-sm btn-warning edit-role" data-role="content">Edit</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Viewer</td>
+                  <td>Read-only access to applications and profiles</td>
+                  <td>5</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-permissions" data-role="viewer">View Permissions</button>
+                      <button class="btn btn-sm btn-warning edit-role" data-role="viewer">Edit</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Role Permissions</h2>
+          </div>
+          <div class="tabs">
+            <div class="tab active" data-tab="applications">Applications</div>
+            <div class="tab" data-tab="students">Students</div>
+            <div class="tab" data-tab="content">Content</div>
+            <div class="tab" data-tab="system">System</div>
+          </div>
+          <div class="tab-content active" id="applications-tab">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Permission</th>
+                    <th>Administrator</th>
+                    <th>Application Reviewer</th>
+                    <th>Content Manager</th>
+                    <th>Viewer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>View Applications</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Approve/Reject Applications</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Delete Applications</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Export Applications</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-content" id="students-tab">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Permission</th>
+                    <th>Administrator</th>
+                    <th>Application Reviewer</th>
+                    <th>Content Manager</th>
+                    <th>Viewer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>View Student Profiles</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Edit Student Profiles</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Delete Student Profiles</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>View Student Documents</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Upload Student Documents</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-content" id="content-tab">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Permission</th>
+                    <th>Administrator</th>
+                    <th>Application Reviewer</th>
+                    <th>Content Manager</th>
+                    <th>Viewer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>View Blog Posts</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Create Blog Posts</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Edit Blog Posts</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Delete Blog Posts</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Publish Blog Posts</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-content" id="system-tab">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Permission</th>
+                    <th>Administrator</th>
+                    <th>Application Reviewer</th>
+                    <th>Content Manager</th>
+                    <th>Viewer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Manage User Accounts</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Manage User Roles</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>View Activity Logs</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td>System Settings</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Send Notifications</td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">User Management</h2>
+            <button class="btn btn-primary" id="add-user-btn">
+              <i class="fas fa-user-plus btn-icon"></i>Add New User
+            </button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Last Login</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Admin User</td>
+                  <td>admin@awesomeschool.edu</td>
+                  <td>Administrator</td>
+                  <td>Today, 9:30 AM</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-warning edit-user" data-id="1">Edit</button>
+                      <button class="btn btn-sm btn-danger">Deactivate</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jane Smith</td>
+                  <td>jane.smith@awesomeschool.edu</td>
+                  <td>Application Reviewer</td>
+                  <td>Today, 8:45 AM</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-warning edit-user" data-id="2">Edit</button>
+                      <button class="btn btn-sm btn-danger">Deactivate</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>John Doe</td>
+                  <td>john.doe@awesomeschool.edu</td>
+                  <td>Content Manager</td>
+                  <td>Yesterday, 4:15 PM</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-warning edit-user" data-id="3">Edit</button>
+                      <button class="btn btn-sm btn-danger">Deactivate</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add/Edit Role Modal -->
+  <div class="modal-backdrop" id="role-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Add New Role</h3>
+        <button class="modal-close" id="close-role-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="role-name">Role Name</label>
+          <input type="text" id="role-name" class="form-control" placeholder="Enter role name...">
+        </div>
+        <div class="form-group">
+          <label for="role-description">Description</label>
+          <textarea id="role-description" class="form-control" placeholder="Enter role description..."></textarea>
+        </div>
+        
+        <h4>Permissions</h4>
+        <div class="permissions-section">
+          <h5>Applications</h5>
+          <div class="form-check">
+            <input type="checkbox" id="perm-view-applications" class="form-check-input" checked>
+            <label for="perm-view-applications">View Applications</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-approve-applications" class="form-check-input">
+            <label for="perm-approve-applications">Approve/Reject Applications</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-delete-applications" class="form-check-input">
+            <label for="perm-delete-applications">Delete Applications</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-export-applications" class="form-check-input">
+            <label for="perm-export-applications">Export Applications</label>
+          </div>
+        </div>
+        
+        <div class="permissions-section">
+          <h5>Students</h5>
+          <div class="form-check">
+            <input type="checkbox" id="perm-view-students" class="form-check-input" checked>
+            <label for="perm-view-students">View Student Profiles</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-edit-students" class="form-check-input">
+            <label for="perm-edit-students">Edit Student Profiles</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-delete-students" class="form-check-input">
+            <label for="perm-delete-students">Delete Student Profiles</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-view-documents" class="form-check-input" checked>
+            <label for="perm-view-documents">View Student Documents</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-upload-documents" class="form-check-input">
+            <label for="perm-upload-documents">Upload Student Documents</label>
+          </div>
+        </div>
+        
+        <div class="permissions-section">
+          <h5>Content</h5>
+          <div class="form-check">
+            <input type="checkbox" id="perm-view-blog" class="form-check-input" checked>
+            <label for="perm-view-blog">View Blog Posts</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-create-blog" class="form-check-input">
+            <label for="perm-create-blog">Create Blog Posts</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-edit-blog" class="form-check-input">
+            <label for="perm-edit-blog">Edit Blog Posts</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-delete-blog" class="form-check-input">
+            <label for="perm-delete-blog">Delete Blog Posts</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-publish-blog" class="form-check-input">
+            <label for="perm-publish-blog">Publish Blog Posts</label>
+          </div>
+        </div>
+        
+        <div class="permissions-section">
+          <h5>System</h5>
+          <div class="form-check">
+            <input type="checkbox" id="perm-manage-users" class="form-check-input">
+            <label for="perm-manage-users">Manage User Accounts</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-manage-roles" class="form-check-input">
+            <label for="perm-manage-roles">Manage User Roles</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-view-logs" class="form-check-input" checked>
+            <label for="perm-view-logs">View Activity Logs</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-system-settings" class="form-check-input">
+            <label for="perm-system-settings">System Settings</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="perm-send-notifications" class="form-check-input">
+            <label for="perm-send-notifications">Send Notifications</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="cancel-role-modal">Cancel</button>
+        <button class="btn btn-primary" id="save-role">Save Role</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add/Edit User Modal -->
+  <div class="modal-backdrop" id="user-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Add New User</h3>
+        <button class="modal-close" id="close-user-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="user-name">Full Name</label>
+          <input type="text" id="user-name" class="form-control" placeholder="Enter full name...">
+        </div>
+        <div class="form-group">
+          <label for="user-email">Email</label>
+          <input type="email" id="user-email" class="form-control" placeholder="Enter email address...">
+        </div>
+        <div class="form-group">
+          <label for="user-role">Role</label>
+          <select id="user-role" class="form-select">
+            <option value="">Select Role</option>
+            <option value="administrator">Administrator</option>
+            <option value="reviewer">Application Reviewer</option>
+            <option value="content">Content Manager</option>
+            <option value="viewer">Viewer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="user-password">Password</label>
+          <input type="password" id="user-password" class="form-control" placeholder="Enter password...">
+        </div>
+        <div class="form-group">
+          <label for="user-confirm-password">Confirm Password</label>
+          <input type="password" id="user-confirm-password" class="form-control" placeholder="Confirm password...">
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="send-welcome-email" class="form-check-input" checked>
+          <label for="send-welcome-email">Send welcome email with login instructions</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="cancel-user-modal">Cancel</button>
+        <button class="btn btn-primary" id="save-user">Save User</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/user-roles.js"></script>
+</body>
+</html>

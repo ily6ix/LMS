@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Review - Awesome School</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/applications.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar (included via JavaScript) -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header (included via JavaScript) -->
+      <div id="header-container"></div>
+
+      <!-- Content Area -->
+      <div class="content">
+        <h1>Application Review</h1>
+        
+        <!-- Applications by Grade Chart -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Applicants by Grade</h2>
+          </div>
+          <div class="chart-container">
+            <canvas id="applicantsByGradeChart"></canvas>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Filter Applications</h2>
+          </div>
+          <div class="filters">
+            <div class="filter-item">
+              <label for="grade-filter">Grade</label>
+              <select id="grade-filter" class="form-select">
+                <option value="">All Grades</option>
+                <option value="6">Grade 6</option>
+                <option value="7">Grade 7</option>
+                <option value="8">Grade 8</option>
+                <option value="9">Grade 9</option>
+                <option value="10">Grade 10</option>
+                <option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+              </select>
+            </div>
+            <div class="filter-item">
+              <label for="status-filter">Status</label>
+              <select id="status-filter" class="form-select">
+                <option value="">All Statuses</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+            <div class="filter-item">
+              <label for="date-filter">Date Range</label>
+              <input type="date" id="date-filter" class="form-control">
+            </div>
+            <div class="filter-item">
+              <label for="search-filter">Search</label>
+              <input type="text" id="search-filter" class="form-control" placeholder="Search by name or ID...">
+            </div>
+          </div>
+          <button class="btn btn-primary">
+            <i class="fas fa-filter btn-icon"></i>Apply Filters
+          </button>
+        </div>
+
+        <!-- Grade 12 Applications -->
+        <div class="card grade-applications" id="grade-12-applications">
+          <div class="card-header">
+            <h2 class="card-title">Grade 12 Applications (3)</h2>
+            <button class="btn btn-sm btn-outline grade-toggle">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Student Name</th>
+                  <th>Previous School</th>
+                  <th>Grade Average</th>
+                  <th>Date Applied</th>
+                  <th>Status</th>
+                  <th>Documents</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#APP-1240</td>
+                  <td>Michael Chen</td>
+                  <td>Lincoln High School</td>
+                  <td>95.2%</td>
+                  <td>May 10, 2023</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline document-btn" data-documents="3">
+                      <i class="fas fa-file"></i> View (3)
+                    </button>
+                  </td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-application" data-id="1240">View</button>
+                      <button class="btn btn-sm btn-success">Approve</button>
+                      <button class="btn btn-sm btn-danger">Reject</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#APP-1241</td>
+                  <td>Sophia Rodriguez</td>
+                  <td>Washington Academy</td>
+                  <td>92.8%</td>
+                  <td>May 12, 2023</td>
+                  <td><span class="badge badge-success">Approved</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline document-btn" data-documents="2">
+                      <i class="fas fa-file"></i> View (2)
+                    </button>
+                  </td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-application" data-id="1241">View</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#APP-1242</td>
+                  <td>David Kim</td>
+                  <td>Oakridge High School</td>
+                  <td>90.5%</td>
+                  <td>May 14, 2023</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline document-btn" data-documents="4">
+                      <i class="fas fa-file"></i> View (4)
+                    </button>
+                  </td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-application" data-id="1242">View</button>
+                      <button class="btn btn-sm btn-success">Approve</button>
+                      <button class="btn btn-sm btn-danger">Reject</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Grade 11 Applications -->
+        <div class="card grade-applications" id="grade-11-applications">
+          <div class="card-header">
+            <h2 class="card-title">Grade 11 Applications (4)</h2>
+            <button class="btn btn-sm btn-outline grade-toggle">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Student Name</th>
+                  <th>Previous School</th>
+                  <th>Grade Average</th>
+                  <th>Date Applied</th>
+                  <th>Status</th>
+                  <th>Documents</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#APP-1236</td>
+                  <td>Emma Wilson</td>
+                  <td>Riverside Academy</td>
+                  <td>94.7%</td>
+                  <td>May 13, 2023</td>
+                  <td><span class="badge badge-danger">Rejected</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline document-btn" data-documents="2">
+                      <i class="fas fa-file"></i> View (2)
+                    </button>
+                  </td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-application" data-id="1236">View</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#APP-1237</td>
+                  <td>James Thompson</td>
+                  <td>Westlake High School</td>
+                  <td>91.3%</td>
+                  <td>May 11, 2023</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline document-btn" data-documents="3">
+                      <i class="fas fa-file"></i> View (3)
+                    </button>
+                  </td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-application" data-id="1237">View</button>
+                      <button class="btn btn-sm btn-success">Approve</button>
+                      <button class="btn btn-sm btn-danger">Reject</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#APP-1238</td>
+                  <td>Olivia Martinez</td>
+                  <td>Pinecrest School</td>
+                  <td>89.5%</td>
+                  <td>May 9, 2023</td>
+                  <td><span class="badge badge-success">Approved</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline document-btn" data-documents="4">
+                      <i class="fas fa-file"></i> View (4)
+                    </button>
+                  </td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-application" data-id="1238">View</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#APP-1239</td>
+                  <td>Noah Johnson</td>
+                  <td>Lakeside High School</td>
+                  <td>87.2%</td>
+                  <td>May 8, 2023</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline document-btn" data-documents="2">
+                      <i class="fas fa-file"></i> View (2)
+                    </button>
+                  </td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-application" data-id="1239">View</button>
+                      <button class="btn btn-sm btn-success">Approve</button>
+                      <button class="btn btn-sm btn-danger">Reject</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Grade 10 Applications -->
+        <div class="card grade-applications" id="grade-10-applications">
+          <div class="card-header">
+            <h2 class="card-title">Grade 10 Applications (7)</h2>
+            <button class="btn btn-sm btn-outline grade-toggle">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Student Name</th>
+                  <th>Previous School</th>
+                  <th>Grade Average</th>
+                  <th>Date Applied</th>
+                  <th>Status</th>
+                  <th>Documents</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#APP-1230</td>
+                  <td>Ethan Williams</td>
+                  <td>Hillcrest Academy</td>
+                  <td>96.1%</td>
+                  <td>May 7, 2023</td>
+                  <td><span class="badge badge-success">Approved</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline document-btn" data-documents="3">
+                      <i class="fas fa-file"></i> View (3)
+                    </button>
+                  </td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-application" data-id="1230">View</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#APP-1231</td>
+                  <td>Ava Garcia</td>
+                  <td>Maplewood School</td>
+                  <td>93.8%</td>
+                  <td>May 8, 2023</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline document-btn" data-documents="2">
+                      <i class="fas fa-file"></i> View (2)
+                    </button>
+                  </td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-sm btn-primary view-application" data-id="1231">View</button>
+                      <button class="btn btn-sm btn-success">Approve</button>
+                      <button class="btn btn-sm btn-danger">Reject</button>
+                    </div>
+                  </td>
+                </tr>
+                <!-- More Grade 10 applications would be listed here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Additional grade sections would follow the same pattern -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Application View Modal -->
+  <div class="modal-backdrop" id="application-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Application #APP-1234</h3>
+        <button class="modal-close" id="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="tabs">
+          <div class="tab active">Personal Info</div>
+          <div class="tab">Academic</div>
+          <div class="tab">Guardian</div>
+          <div class="tab">Documents</div>
+        </div>
+        
+        <h4>Personal Information</h4>
+        <div class="form-group">
+          <label>Full Name</label>
+          <p>John Smith</p>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <p>January 15, 2008</p>
+          </div>
+          <div class="form-group">
+            <label>Gender</label>
+            <p>Male</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <p>123 Main Street, Cityville, State 12345</p>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <p>john.smith@example.com</p>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <p>(123) 456-7890</p>
+          </div>
+        </div>
+        
+        <h4>Application Status</h4>
+        <div class="form-group">
+          <label>Current Status</label>
+          <p><span class="badge badge-warning">Pending</span></p>
+        </div>
+        <div class="form-group">
+          <label>Admin Notes</label>
+          <textarea class="form-control" placeholder="Add notes about this application..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="cancel-modal">Cancel</button>
+        <button class="btn btn-danger">Reject</button>
+        <button class="btn btn-success">Approve</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Documents Modal -->
+  <div class="modal-backdrop" id="documents-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Application Documents</h3>
+        <button class="modal-close" id="close-documents-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="document-list">
+          <div class="document-item">
+            <div class="document-icon">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="document-info">
+              <h4>Transcript.pdf</h4>
+              <p>Uploaded on: May 10, 2023</p>
+            </div>
+            <div class="document-actions">
+              <button class="btn btn-sm btn-primary">View</button>
+              <button class="btn btn-sm btn-outline">Download</button>
+            </div>
+          </div>
+          <div class="document-item">
+            <div class="document-icon">
+              <i class="fas fa-file-image"></i>
+            </div>
+            <div class="document-info">
+              <h4>ID_Card.jpg</h4>
+              <p>Uploaded on: May 10, 2023</p>
+            </div>
+            <div class="document-actions">
+              <button class="btn btn-sm btn-primary">View</button>
+              <button class="btn btn-sm btn-outline">Download</button>
+            </div>
+          </div>
+          <div class="document-item">
+            <div class="document-icon">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="document-info">
+              <h4>Recommendation_Letter.pdf</h4>
+              <p>Uploaded on: May 10, 2023</p>
+            </div>
+            <div class="document-actions">
+              <button class="btn btn-sm btn-primary">View</button>
+              <button class="btn btn-sm btn-outline">Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="cancel-documents-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/applications.js"></script>
+</body>
+</html>

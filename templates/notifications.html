@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications & Alerts - Awesome School</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/notifications.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar (included via JavaScript) -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header (included via JavaScript) -->
+      <div id="header-container"></div>
+
+      <!-- Content Area -->
+      <div class="content">
+        <h1>Notifications & Alerts</h1>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">System Notifications</h2>
+            <button class="btn btn-primary" id="mark-all-read">
+              <i class="fas fa-check-double btn-icon"></i>Mark All as Read
+            </button>
+          </div>
+          <div class="notification-list">
+            <div class="notification-item unread">
+              <div class="notification-icon" style="background-color: rgba(59, 130, 246, 0.1); color: var(--info);">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="notification-content">
+                <div class="notification-title">New Application Submitted</div>
+                <p>A new application has been submitted by Emily Davis for Grade 8.</p>
+                <div class="notification-time">Today, 10:30 AM</div>
+                <div class="notification-actions">
+                  <button class="btn btn-sm btn-primary">View Application</button>
+                  <button class="btn btn-sm btn-outline mark-read">Mark as Read</button>
+                </div>
+              </div>
+            </div>
+            <div class="notification-item unread">
+              <div class="notification-icon" style="background-color: rgba(16, 185, 129, 0.1); color: var(--success);">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="notification-content">
+                <div class="notification-title">Application Approved</div>
+                <p>Admin User has approved the application for Sarah Johnson.</p>
+                <div class="notification-time">Today, 9:15 AM</div>
+                <div class="notification-actions">
+                  <button class="btn btn-sm btn-outline mark-read">Mark as Read</button>
+                </div>
+              </div>
+            </div>
+            <div class="notification-item">
+              <div class="notification-icon" style="background-color: rgba(245, 158, 11, 0.1); color: var(--warning);">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <div class="notification-content">
+                <div class="notification-title">System Update</div>
+                <p>The system will undergo maintenance on May 20, 2023, from 10:00 PM to 2:00 AM.</p>
+                <div class="notification-time">Yesterday, 4:45 PM</div>
+                <div class="notification-actions">
+                  <button class="btn btn-sm btn-outline mark-read">Mark as Read</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grade-specific notifications -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Grade-Specific Notifications</h2>
+          </div>
+          
+          <!-- Grade 12 Notifications -->
+          <div class="grade-section">
+            <div class="grade-header">
+              <h3>Grade 12 Notifications</h3>
+              <button class="btn btn-sm btn-outline grade-toggle">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+            <div class="notification-list">
+              <div class="notification-item unread">
+                <div class="notification-icon" style="background-color: rgba(59, 130, 246, 0.1); color: var(--info);">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="notification-content">
+                  <div class="notification-title">Graduation Ceremony Reminder</div>
+                  <p>The graduation ceremony will be held on June 15, 2023, at 2:00 PM in the Main Auditorium.</p>
+                  <div class="notification-time">Today, 11:30 AM</div>
+                  <div class="notification-actions">
+                    <button class="btn btn-sm btn-primary">View Details</button>
+                    <button class="btn btn-sm btn-outline mark-read">Mark as Read</button>
+                  </div>
+                </div>
+              </div>
+              <div class="notification-item">
+                <div class="notification-icon" style="background-color: rgba(16, 185, 129, 0.1); color: var(--success);">
+                  <i class="fas fa-university"></i>
+                </div>
+                <div class="notification-content">
+                  <div class="notification-title">College Acceptance Updates</div>
+                  <p>15 students have reported college acceptances this week. View the updated report.</p>
+                  <div class="notification-time">Yesterday, 2:15 PM</div>
+                  <div class="notification-actions">
+                    <button class="btn btn-sm btn-primary">View Report</button>
+                    <button class="btn btn-sm btn-outline mark-read">Mark as Read</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Grade 11 Notifications -->
+          <div class="grade-section">
+            <div class="grade-header">
+              <h3>Grade 11 Notifications</h3>
+              <button class="btn btn-sm btn-outline grade-toggle">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+            <div class="notification-list">
+              <div class="notification-item unread">
+                <div class="notification-icon" style="background-color: rgba(245, 158, 11, 0.1); color: var(--warning);">
+                  <i class="fas fa-book"></i>
+                </div>
+                <div class="notification-content">
+                  <div class="notification-title">SAT Prep Workshop</div>
+                  <p>A SAT preparation workshop will be held on May 25, 2023, from 3:00 PM to 5:00 PM in Room 201.</p>
+                  <div class="notification-time">Today, 9:45 AM</div>
+                  <div class="notification-actions">
+                    <button class="btn btn-sm btn-primary">View Details</button>
+                    <button class="btn btn-sm btn-outline mark-read">Mark as Read</button>
+                  </div>
+                </div>
+              </div>
+              <div class="notification-item">
+                <div class="notification-icon" style="background-color: rgba(59, 130, 246, 0.1); color: var(--info);">
+                  <i class="fas fa-clipboard-list"></i>
+                </div>
+                <div class="notification-content">
+                  <div class="notification-title">Course Selection Deadline</div>
+                  <p>Reminder: Course selections for the next academic year are due by May 30, 2023.</p>
+                  <div class="notification-time">Yesterday, 1:30 PM</div>
+                  <div class="notification-actions">
+                    <button class="btn btn-sm btn-primary">View Course Catalog</button>
+                    <button class="btn btn-sm btn-outline mark-read">Mark as Read</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Additional grade sections would follow the same pattern -->
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Email Notification Settings</h2>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" id="email-new-app" class="form-check-input" checked>
+              <label for="email-new-app">New application submissions</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="email-status-change" class="form-check-input" checked>
+              <label for="email-status-change">Application status changes</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="email-system" class="form-check-input" checked>
+              <label for="email-system">System updates and maintenance</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="email-user" class="form-check-input">
+              <label for="email-user">User account changes</label>
+            </div>
+          </div>
+          <button class="btn btn-primary">
+            <i class="fas fa-save btn-icon"></i>Save Settings
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Send Custom Notification</h2>
+          </div>
+          <div class="form-group">
+            <label for="notification-recipients">Recipients</label>
+            <select id="notification-recipients" class="form-select">
+              <option value="all-admins">All Administrators</option>
+              <option value="all-users">All Users</option>
+              <option value="grade-12">Grade 12 Students/Parents</option>
+              <option value="grade-11">Grade 11 Students/Parents</option>
+              <option value="grade-10">Grade 10 Students/Parents</option>
+              <option value="grade-9">Grade 9 Students/Parents</option>
+              <option value="grade-8">Grade 8 Students/Parents</option>
+              <option value="grade-7">Grade 7 Students/Parents</option>
+              <option value="grade-6">Grade 6 Students/Parents</option>
+              <option value="specific">Specific Users</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="notification-title">Title</label>
+            <input type="text" id="notification-title" class="form-control" placeholder="Enter notification title...">
+          </div>
+          <div class="form-group">
+            <label for="notification-message">Message</label>
+            <textarea id="notification-message" class="form-control" placeholder="Enter notification message..."></textarea>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" id="send-email" class="form-check-input">
+              <label for="send-email">Also send as email</label>
+            </div>
+          </div>
+          <button class="btn btn-primary">
+            <i class="fas fa-paper-plane btn-icon"></i>Send Notification
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/notifications.js"></script>
+</body>
+</html>

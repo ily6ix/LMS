@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Admin Portal - Sidebar</title>
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/common.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Mobile menu toggle button -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-school"></i>
+                    <h2>School Admin</h2>
+                </div>
+                <button class="close-sidebar" id="closeSidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="user-profile">
+                <div class="avatar">AD</div>
+                <div class="user-info">
+                    <h3>Admin User</h3>
+                    <p>Administrator</p>
+                </div>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="menu-section">
+                    <span class="section-title">Main</span>
+                </li>
+                <li class="menu-item active">
+                    <a href="dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="applications.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Applications</span>
+                        <span class="badge">42</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="status-tracking.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Status Tracking</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="student-profiles.html">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>Student Profiles</span>
+                    </a>
+                </li>
+
+                <li class="menu-section">
+                    <span class="section-title">Communication</span>
+                </li>
+                <li class="menu-item">
+                    <a href="notifications.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Notifications</span>
+                        <span class="badge">5</span>
+                    </a>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a href="#" class="submenu-toggle">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Content</span>
+                        <i class="fas fa-chevron-down submenu-icon"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="blog-editor.html">Blog Editor</a></li>
+                        <li><a href="announcements.html">Announcements</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-section">
+                    <span class="section-title">Administration</span>
+                </li>
+                <li class="menu-item">
+                    <a href="user-roles.html">
+                        <i class="fas fa-users-cog"></i>
+                        <span>User Roles</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="activity-logs.html">
+                        <i class="fas fa-history"></i>
+                        <span>Activity Logs</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <a href="#" class="help-link">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help & Support</span>
+                </a>
+                <a href="#" class="logout-link">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main content area (for demo purposes) -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Dashboard</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                </div>
+            </header>
+            <div class="content-body">
+                <div class="content-placeholder">
+                    <h2>Main Content Area</h2>
+                    <p>Your dashboard content will appear here.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>

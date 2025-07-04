@@ -1,0 +1,132 @@
+:root {
+  --primary: #1e40af;
+  --primary-dark: #1e3a8a;
+  --secondary: #f3f4f6;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --border: #e5e7eb;
+  --unread-bg: #f0f9ff;
+  --transition-speed: 0.3s;
+}
+
+/* Notifications Specific Styles */
+.notification-list {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  transition: background-color var(--transition-speed);
+}
+
+.notification-item.unread {
+  background-color: var(--unread-bg);
+}
+
+.notification-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-title {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.notification-time {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.notification-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Grade Section Styles */
+.grade-section {
+  border-bottom: 1px solid var(--border);
+}
+
+.grade-section:last-child {
+  border-bottom: none;
+}
+
+.grade-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--secondary);
+}
+
+.grade-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.grade-toggle {
+  transition: transform var(--transition-speed);
+}
+
+.grade-toggle.collapsed {
+  transform: rotate(-90deg);
+}
+
+.grade-section .notification-list {
+  max-height: 400px;
+  transition: max-height var(--transition-speed), opacity var(--transition-speed);
+  overflow-y: auto;
+}
+
+.grade-section .notification-list.collapsed {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Form Styles */
+.form-check {
+  margin-bottom: 0.75rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .notification-item {
+    flex-direction: column;
+  }
+  
+  .notification-icon {
+    margin-bottom: 0.5rem;
+  }
+  
+  .notification-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .notification-actions .btn {
+    width: 100%;
+  }
+}

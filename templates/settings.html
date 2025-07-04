@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Awesome School</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar (included via JavaScript) -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header (included via JavaScript) -->
+      <div id="header-container"></div>
+
+      <!-- Content Area -->
+      <div class="content">
+        <h1>Settings</h1>
+        
+        <div class="settings-tabs">
+          <button class="settings-tab active" data-tab="account">Account Settings</button>
+          <button class="settings-tab" data-tab="system">System Settings</button>
+          <button class="settings-tab" data-tab="appearance">Appearance</button>
+          <button class="settings-tab" data-tab="security">Security</button>
+          <button class="settings-tab" data-tab="backup">Backup & Restore</button>
+        </div>
+        
+        <!-- Account Settings -->
+        <div class="settings-content active" id="account-settings">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Account Settings</h2>
+            </div>
+            <div class="form-group">
+              <label for="settings-name">Name</label>
+              <input type="text" id="settings-name" class="form-control" value="Admin User">
+            </div>
+            <div class="form-group">
+              <label for="settings-email">Email</label>
+              <input type="email" id="settings-email" class="form-control" value="admin@awesomeschool.edu">
+            </div>
+            <div class="form-group">
+              <label for="settings-password">New Password</label>
+              <input type="password" id="settings-password" class="form-control" placeholder="Enter new password...">
+            </div>
+            <div class="form-group">
+              <label for="settings-confirm">Confirm Password</label>
+              <input type="password" id="settings-confirm" class="form-control" placeholder="Confirm new password...">
+            </div>
+            <button class="btn btn-primary" id="save-account">
+              <i class="fas fa-save btn-icon"></i>Save Changes
+            </button>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Profile Picture</h2>
+            </div>
+            <div class="profile-picture-container">
+              <div class="profile-picture">
+                <div class="user-avatar">A</div>
+              </div>
+              <div class="profile-picture-actions">
+                <input type="file" id="profile-picture-upload" class="form-control" accept="image/*">
+                <button class="btn btn-outline" id="remove-picture">Remove Picture</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Notification Preferences</h2>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" id="notify-email" class="form-check-input" checked>
+                <label for="notify-email">Email notifications</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" id="notify-browser" class="form-check-input" checked>
+                <label for="notify-browser">Browser notifications</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" id="notify-daily" class="form-check-input">
+                <label for="notify-daily">Daily summary email</label>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="save-notifications">
+              <i class="fas fa-save btn-icon"></i>Save Preferences
+            </button>
+          </div>
+        </div>
+        
+        <!-- System Settings -->
+        <div class="settings-content" id="system-settings">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">System Settings</h2>
+            </div>
+            <div class="form-group">
+              <label for="settings-school">School Name</label>
+              <input type="text" id="settings-school" class="form-control" value="Awesome School">
+            </div>
+            <div class="form-group">
+              <label for="settings-email-from">System Email</label>
+              <input type="email" id="settings-email-from" class="form-control" value="noreply@awesomeschool.edu">
+            </div>
+            <div class="form-group">
+              <label for="settings-session">Session Timeout (minutes)</label>
+              <input type="number" id="settings-session" class="form-control" value="30" min="5" max="120">
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" id="settings-maintenance" class="form-check-input">
+                <label for="settings-maintenance">Maintenance Mode</label>
+              </div>
+              <p class="form-note">When enabled, only administrators can access the system.</p>
+            </div>
+            <button class="btn btn-primary" id="save-system">
+              <i class="fas fa-save btn-icon"></i>Save Settings
+            </button>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Email Configuration</h2>
+            </div>
+            <div class="form-group">
+              <label for="settings-smtp-host">SMTP Host</label>
+              <input type="text" id="settings-smtp-host" class="form-control" value="smtp.example.com">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="settings-smtp-port">SMTP Port</label>
+                <input type="number" id="settings-smtp-port" class="form-control" value="587">
+              </div>
+              <div class="form-group">
+                <label for="settings-smtp-security">Security</label>
+                <select id="settings-smtp-security" class="form-select">
+                  <option value="none">None</option>
+                  <option value="ssl">SSL</option>
+                  <option value="tls" selected>TLS</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="settings-smtp-username">SMTP Username</label>
+              <input type="text" id="settings-smtp-username" class="form-control" value="noreply@awesomeschool.edu">
+            </div>
+            <div class="form-group">
+              <label for="settings-smtp-password">SMTP Password</label>
+              <input type="password" id="settings-smtp-password" class="form-control" value="********">
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-outline" id="test-email">Test Email</button>
+              <button class="btn btn-primary" id="save-email">Save Configuration</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Appearance Settings -->
+        <div class="settings-content" id="appearance-settings">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Theme Settings</h2>
+            </div>
+            <div class="theme-options">
+              <div class="theme-option">
+                <input type="radio" name="theme" id="theme-light" value="light" checked>
+                <label for="theme-light" class="theme-preview light-theme">
+                  <div class="theme-preview-header"></div>
+                  <div class="theme-preview-sidebar"></div>
+                  <div class="theme-preview-content"></div>
+                </label>
+                <div class="theme-name">Light</div>
+              </div>
+              <div class="theme-option">
+                <input type="radio" name="theme" id="theme-dark" value="dark">
+                <label for="theme-dark" class="theme-preview dark-theme">
+                  <div class="theme-preview-header"></div>
+                  <div class="theme-preview-sidebar"></div>
+                  <div class="theme-preview-content"></div>
+                </label>
+                <div class="theme-name">Dark</div>
+              </div>
+              <div class="theme-option">
+                <input type="radio" name="theme" id="theme-blue" value="blue">
+                <label for="theme-blue" class="theme-preview blue-theme">
+                  <div class="theme-preview-header"></div>
+                  <div class="theme-preview-sidebar"></div>
+                  <div class="theme-preview-content"></div>
+                </label>
+                <div class="theme-name">Blue</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" id="auto-theme" class="form-check-input">
+                <label for="auto-theme">Auto-switch based on system preference</label>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="save-theme">
+              <i class="fas fa-save btn-icon"></i>Save Theme
+            </button>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Logo & Branding</h2>
+            </div>
+            <div class="form-group">
+              <label for="settings-logo">School Logo</label>
+              <input type="file" id="settings-logo" class="form-control" accept="image/*">
+              <div class="logo-preview">
+                <img src="/placeholder.svg?height=100&width=200" alt="School logo">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="settings-favicon">Favicon</label>
+              <input type="file" id="settings-favicon" class="form-control" accept="image/*">
+              <div class="favicon-preview">
+                <img src="/placeholder.svg?height=32&width=32" alt="Favicon">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="settings-primary-color">Primary Color</label>
+              <input type="color" id="settings-primary-color" class="form-control" value="#1e40af">
+            </div>
+            <button class="btn btn-primary" id="save-branding">
+              <i class="fas fa-save btn-icon"></i>Save Branding
+            </button>
+          </div>
+        </div>
+        
+        <!-- Security Settings -->
+        <div class="settings-content" id="security-settings">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Security Settings</h2>
+            </div>
+            <div class="form-group">
+              <label for="settings-password-policy">Password Policy</label>
+              <select id="settings-password-policy" class="form-select">
+                <option value="basic">Basic (minimum 8 characters)</option>
+                <option value="medium" selected>Medium (minimum 8 characters, including numbers)</option>
+                <option value="strong">Strong (minimum 10 characters, including numbers and special characters)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="settings-password-expiry">Password Expiry</label>
+              <select id="settings-password-expiry" class="form-select">
+                <option value="0">Never</option>
+                <option value="30">30 days</option>
+                <option value="60">60 days</option>
+                <option value="90" selected>90 days</option>
+                <option value="180">180 days</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" id="settings-2fa" class="form-check-input">
+                <label for="settings-2fa">Require Two-Factor Authentication</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" id="settings-ip-restriction" class="form-check-input">
+                <label for="settings-ip-restriction">IP Address Restriction</label>
+              </div>
+              <textarea id="settings-allowed-ips" class="form-control" placeholder="Enter allowed IP addresses, one per line" disabled></textarea>
+            </div>
+            <button class="btn btn-primary" id="save-security">
+              <i class="fas fa-save btn-icon"></i>Save Security Settings
+            </button>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Login History</h2>
+            </div>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date & Time</th>
+                    <th>IP Address</th>
+                    <th>Browser</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>May 16, 2023 9:30 AM</td>
+                    <td>192.168.1.100</td>
+                    <td>Chrome 113.0.5672.93 (Windows)</td>
+                    <td><span class="badge badge-success">Success</span></td>
+                  </tr>
+                  <tr>
+                    <td>May 15, 2023 2:15 PM</td>
+                    <td>192.168.1.100</td>
+                    <td>Chrome 113.0.5672.93 (Windows)</td>
+                    <td><span class="badge badge-success">Success</span></td>
+                  </tr>
+                  <tr>
+                    <td>May 14, 2023 10:45 AM</td>
+                    <td>192.168.1.101</td>
+                    <td>Safari 16.4 (macOS)</td>
+                    <td><span class="badge badge-danger">Failed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Backup & Restore Settings -->
+        <div class="settings-content" id="backup-settings">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Backup Settings</h2>
+            </div>
+            <div class="form-group">
+              <label for="settings-backup-frequency">Automatic Backup Frequency</label>
+              <select id="settings-backup-frequency" class="form-select">
+                <option value="daily">Daily</option>
+                <option value="weekly" selected>Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="never">Never</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="settings-backup-retention">Backup Retention</label>
+              <select id="settings-backup-retention" class="form-select">
+                <option value="1">1 backup</option>
+                <option value="3">3 backups</option>
+                <option value="5" selected>5 backups</option>
+                <option value="10">10 backups</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" id="settings-backup-include-files" class="form-check-input" checked>
+                <label for="settings-backup-include-files">Include uploaded files in backup</label>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="save-backup-settings">
+              <i class="fas fa-save btn-icon"></i>Save Backup Settings
+            </button>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Manual Backup</h2>
+            </div>
+            <p>Create a manual backup of the system data. This process may take several minutes depending on the amount of data.</p>
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" id="backup-database" class="form-check-input" checked>
+                <label for="backup-database">Database</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" id="backup-files" class="form-check-input" checked>
+                <label for="backup-files">Uploaded Files</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" id="backup-settings" class="form-check-input" checked>
+                <label for="backup-settings">System Settings</label>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="create-backup">
+              <i class="fas fa-download btn-icon"></i>Create Backup
+            </button>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Restore from Backup</h2>
+            </div>
+            <p class="warning-text">Warning: Restoring from a backup will overwrite all current data. This action cannot be undone.</p>
+            <div class="form-group">
+              <label for="restore-file">Upload Backup File</label>
+              <input type="file" id="restore-file" class="form-control" accept=".zip,.sql,.gz">
+            </div>
+            <button class="btn btn-danger" id="restore-backup">
+              <i class="fas fa-upload btn-icon"></i>Restore from Backup
+            </button>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Previous Backups</h2>
+            </div>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date & Time</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>May 16, 2023 00:00:00</td>
+                    <td>Automatic</td>
+                    <td>25.4 MB</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-sm btn-primary">Download</button>
+                        <button class="btn btn-sm btn-warning">Restore</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>May 9, 2023 00:00:00</td>
+                    <td>Automatic</td>
+                    <td>24.8 MB</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-sm btn-primary">Download</button>
+                        <button class="btn btn-sm btn-warning">Restore</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>May 5, 2023 15:30:45</td>
+                    <td>Manual</td>
+                    <td>24.5 MB</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-sm btn-primary">Download</button>
+                        <button class="btn btn-sm btn-warning">Restore</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

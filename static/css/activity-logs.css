@@ -1,0 +1,72 @@
+:root {
+  --primary: #1e40af;
+  --primary-dark: #1e3a8a;
+  --secondary: #f3f4f6;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --border: #e5e7eb;
+  --transition-speed: 0.3s;
+}
+
+/* Activity Logs Specific Styles */
+.grade-section {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.grade-section:last-child {
+  margin-bottom: 0;
+}
+
+.grade-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.grade-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.grade-toggle {
+  transition: transform var(--transition-speed);
+}
+
+.grade-toggle.collapsed {
+  transform: rotate(-90deg);
+}
+
+.table-container {
+  overflow-x: auto;
+  transition: max-height var(--transition-speed), opacity var(--transition-speed);
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.table-container.collapsed {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+  
+  .filter-item {
+    width: 100%;
+  }
+}

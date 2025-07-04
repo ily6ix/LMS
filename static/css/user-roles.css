@@ -1,0 +1,93 @@
+:root {
+  --primary: #1e40af;
+  --primary-dark: #1e3a8a;
+  --secondary: #f3f4f6;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --border: #e5e7eb;
+  --transition-speed: 0.3s;
+}
+
+/* User Roles Specific Styles */
+.text-success {
+  color: var(--success);
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+/* Tab Styles */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+  transition: all var(--transition-speed);
+}
+
+.tab:hover {
+  color: var(--primary);
+}
+
+.tab.active {
+  border-bottom-color: var(--primary);
+  color: var(--primary);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Permissions Section Styles */
+.permissions-section {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background-color: var(--secondary);
+}
+
+.permissions-section h5 {
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+}
+
+.permissions-section .form-check {
+  margin-bottom: 0.5rem;
+}
+
+.permissions-section .form-check:last-child {
+  margin-bottom: 0;
+}
+
+/* Modal Styles */
+.modal {
+  max-width: 600px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .tabs {
+    flex-wrap: wrap;
+  }
+  
+  .tab {
+    flex: 1 1 calc(50% - 1rem);
+    text-align: center;
+  }
+}

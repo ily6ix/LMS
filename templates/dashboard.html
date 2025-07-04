@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Awesome School</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Example in templates/index.html -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar (included via JavaScript) -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header (included via JavaScript) -->
+      <div id="header-container"></div>
+
+      <!-- Content Area -->
+      <div class="content">
+        <h1>Dashboard</h1>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="stat-content">
+              <h3>42</h3>
+              <p>Total Applications</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-content">
+              <h3>28</h3>
+              <p>Approved Applications</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon yellow">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-content">
+              <h3>10</h3>
+              <p>Pending Applications</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red">
+              <i class="fas fa-times-circle"></i>
+            </div>
+            <div class="stat-content">
+              <h3>4</h3>
+              <p>Rejected Applications</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Applications by Grade</h2>
+          </div>
+          <div class="chart-container">
+            <canvas id="applicationsChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Recent Activity</h2>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Action</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Admin User</td>
+                  <td>Approved application #1234</td>
+                  <td>Today, 10:30 AM</td>
+                </tr>
+                <tr>
+                  <td>Jane Smith</td>
+                  <td>Updated student profile #5678</td>
+                  <td>Today, 9:15 AM</td>
+                </tr>
+                <tr>
+                  <td>John Doe</td>
+                  <td>Created new blog post</td>
+                  <td>Yesterday, 4:45 PM</td>
+                </tr>
+                <tr>
+                  <td>Admin User</td>
+                  <td>Added new user role</td>
+                  <td>Yesterday, 2:30 PM</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Application Status</h2>
+            <div class="toggle-container">
+              <span>Closed</span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="application-toggle" checked>
+                <span class="toggle-slider"></span>
+              </label>
+              <span>Open</span>
+            </div>
+          </div>
+          <p>Control whether the "Apply Now" button is visible on the public website.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
